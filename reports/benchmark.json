@@ -1,0 +1,31 @@
+{
+  "dataset": "City of Chicago Food Inspections",
+  "source": "https://data.cityofchicago.org/resource/4ijn-s7e5.csv",
+  "input_sha256": "316b316f5e5b98c19fdfadee77eb17f73ef4e5d5d0d426e103f3bbf0e77f377a",
+  "rows_received": 50000,
+  "duplicate_rows_removed": 0,
+  "eligible_rows": 41777,
+  "excluded_outcome_rows": 8223,
+  "eligible_outcomes": [
+    "Fail",
+    "Pass",
+    "Pass w/ Conditions"
+  ],
+  "failure_definition": "Results exactly equal to Fail; Pass and Pass w/ Conditions are non-fail; non-completion outcomes are excluded.",
+  "date_range": [
+    "2024-02-27",
+    "2026-11-13"
+  ],
+  "train_date_end": "2026-04-30",
+  "test_date_start": "2026-05-01",
+  "train_rows": 34717,
+  "test_rows": 7060,
+  "failure_rate": 0.2177053824362606,
+  "roc_auc": 0.6271695073926966,
+  "average_precision": 0.30272707336364535,
+  "split": "latest 20% of unique calendar dates among the 50,000 most recent source records; no same-day records are split across partitions",
+  "source_url": "https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5",
+  "benchmark_date": "2026-11-17",
+  "method": "class-weighted logistic regression; holdout on latest 20% unique dates; ID dedup; predictors restricted to facility_type, risk, inspection_type",
+  "label": "exact Fail versus Pass/Pass w Conditions; non-completion results excluded"
+}
